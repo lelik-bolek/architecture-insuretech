@@ -1,0 +1,30 @@
+# ===========================================================================
+# Схема GraphQL API сервиса client-info (Задание 5)
+# Эквивалент REST API: устранение избыточной выборки и снижение RPS
+# ===========================================================================
+
+# 1. Сущность Документа
+type Document {
+  id: ID!
+  type: String
+  number: String
+  issueDate: String
+  expiryDate: String
+}
+
+# 2. Сущность Родственника
+type Relative {
+  id: ID!
+  relationType: String
+  name: String
+  age: Int
+}
+
+# 3. Сущность Клиента (агрегирует связанные списки)
+type Client {
+  id: ID!
+  name: String
+  age: Int
+  documents: [Document]
+  relatives: [Relative]
+}
