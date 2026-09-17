@@ -1,0 +1,19 @@
+=== DATE: понедельник, 14 сентября 2026 г. 17:11:19 (MSK) ===
+=== HPA (SCALED) ===
+NAME               REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa   Deployment/scaletestapp   memory: 68%/80%   1         10        2          37m
+=== PODS (SCALED) ===
+NAME                            READY   STATUS    RESTARTS   AGE     IP           NODE     NOMINATED NODE   READINESS GATES
+scaletestapp-6c456b7cbd-rqmfb   1/1     Running   0          2m54s   10.42.0.11   colima   <none>           <none>
+scaletestapp-6c456b7cbd-zmrqt   1/1     Running   0          22m     10.42.0.10   colima   <none>           <none>
+=== TOP PODS ===
+NAME                            CPU(cores)   MEMORY(bytes)   
+scaletestapp-6c456b7cbd-rqmfb   0m           5Mi             
+scaletestapp-6c456b7cbd-zmrqt   92m          22Mi            
+=== HPA DESCRIBE EVENTS ===
+Events:
+  Type     Reason                        Age                 From                       Message
+  ----     ------                        ----                ----                       -------
+  Warning  FailedComputeMetricsReplicas  34m (x12 over 37m)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get memory resource metric value: failed to get memory utilization: unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       22m (x61 over 37m)  horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: no metrics returned from resource metrics API
+  Normal   SuccessfulRescale             2m54s               horizontal-pod-autoscaler  New size: 2; reason: memory resource utilization (percentage of request) above target

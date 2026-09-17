@@ -1,0 +1,10 @@
+=== DATE: понедельник, 14 сентября 2026 г. 16:50:47 (MSK) ===
+=== PODS ===
+NAME                            READY   STATUS    RESTARTS   AGE    IP           NODE     NOMINATED NODE   READINESS GATES
+scaletestapp-6c456b7cbd-zmrqt   1/1     Running   0          112s   10.42.0.10   colima   <none>           <none>
+=== HPA ===
+NAME               REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa   Deployment/scaletestapp   memory: 26%/80%   1         10        1          17m
+=== TOP PODS ===
+NAME                            CPU(cores)   MEMORY(bytes)   
+scaletestapp-6c456b7cbd-zmrqt   0m           5Mi             
